@@ -101,12 +101,12 @@
 </g>
 <text x="600" y="232" text-anchor="middle" class="o9 a vs" font-size="34" fill="#ff1f3d" filter="url(#g8)">VS</text>
 
-<g class="a lk"><text x="260" y="370" class="o7" font-size="12" letter-spacing="3" fill="#9a6d74">CUADROS</text></g>
-<rect class="a f1" x="330" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/><rect class="a f2" x="356" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/><rect class="a f3" x="382" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/>
+<g class="a lk"><text x="260" y="370" class="o7" font-size="12" letter-spacing="3" fill="#9a6d74">VALIDANDO</text></g>
+<rect class="a f1" x="395" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/><rect class="a f2" x="421" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/><rect class="a f3" x="447" y="356" width="18" height="18" fill="#ff1f3d" filter="url(#g4)"/>
 
 <rect class="a flash" width="1200" height="480" fill="#ff1f3d"/>
 <text x="600" y="402" text-anchor="middle" class="o9 a fb ver" font-size="40" letter-spacing="5" fill="#ff1f3d" filter="url(#g14)">GANA LA MÁQUINA</text>
-<text x="600" y="440" text-anchor="middle" class="o7 a rea" font-size="16" letter-spacing="5" fill="#eaf2ff">REACCIONÓ EN 94 MS</text>
+<text x="600" y="440" text-anchor="middle" class="o7 a rea" font-size="16" letter-spacing="5" fill="#eaf2ff">SE ADELANTÓ 231 MS A TU JUGADA</text>
 
 <pattern id="sl" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.5" fill="#000" opacity=".45"/></pattern>
 <rect width="1200" height="480" fill="url(#sl)"/>

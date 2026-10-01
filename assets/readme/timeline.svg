@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370">
 <defs>
 <style>
 @font-face{font-family:O9;src:url(data:font/woff2;base64,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) format("woff2")}
@@ -46,36 +46,64 @@
 
 </defs>
 
-<rect width="1200" height="300" fill="#050102"/>
-<path d="M14 40V14H40M1160 14H1186V40M1186 260V286H1160M40 286H14V260" fill="none" stroke="#ff1f3d" stroke-width="3" filter="url(#g4)"/>
-<text x="44" y="52" class="o7" font-size="13" letter-spacing="4" fill="#9a6d74">TIEMPO DE REACCIÓN <tspan fill="#ff1f3d">MS</tspan></text>
-<line x1="250" y1="70" x2="250" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="250" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">0</text><line x1="400" y1="70" x2="400" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="400" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">50</text><line x1="550" y1="70" x2="550" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="550" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">100</text><line x1="700" y1="70" x2="700" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="700" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">150</text><line x1="850" y1="70" x2="850" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="850" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">200</text><line x1="1000" y1="70" x2="1000" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="1000" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">250</text><line x1="1150" y1="70" x2="1150" y2="226" stroke="rgba(255,31,61,.15)" stroke-dasharray="4 6"/>
-<text x="1150" y="252" text-anchor="middle" class="r6" font-size="14" fill="#9a6d74">300</text>
-
-<text x="226" y="122" text-anchor="end" class="o9" font-size="20" letter-spacing="4" fill="#ff1f3d">MÁQUINA</text>
-<rect x="250" y="96" width="900" height="36" fill="rgba(255,31,61,.06)" stroke="rgba(255,31,61,.2)"/>
-<rect x="250" y="96" width="0" height="36" fill="#ff1f3d" filter="url(#g8)">
-  <animate attributeName="width" values="0;282;282;0" keyTimes="0;0.06;0.9;1" dur="5s" repeatCount="indefinite"/>
+<rect width="1200" height="370" fill="#050102"/>
+<path d="M14 40V14H40M1160 14H1186V40M1186 330V356H1160M40 356H14V330" fill="none" stroke="#ff1f3d" stroke-width="3" filter="url(#g4)"/>
+<text x="44" y="52" class="o7" font-size="13" letter-spacing="4" fill="#9a6d74">UNA RONDA EN <tspan fill="#ff1f3d">MILISEGUNDOS</tspan></text>
+<rect x="160" y="174" width="900" height="2" fill="rgba(255,31,61,.35)"/>
+<rect x="456.05263157894734" y="171" width="0" height="8" fill="#ff1f3d" filter="url(#g8)">
+  <animate attributeName="width" values="0;0;272.3684210526316;272.3684210526316;0" keyTimes="0;0.247;0.474;0.97;1" dur="6s" repeatCount="indefinite"/>
 </rect>
-<text x="546" y="122" class="o7" font-size="18" letter-spacing="2" fill="#ff1f3d" opacity="0">~94 MS
-  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.06;0.06999999999999999;0.9;1" dur="5s" repeatCount="indefinite"/>
+<text x="592.2368421052631" y="325" text-anchor="middle" class="o7" font-size="13" letter-spacing="4" fill="#ff1f3d" opacity="0">ANTICIPACIÓN 230 MS
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.474;0.484;0.97;1" dur="6s" repeatCount="indefinite"/>
 </text>
-
-<text x="226" y="186" text-anchor="end" class="o9" font-size="20" letter-spacing="4" fill="#eaf2ff">HUMANO</text>
-<rect x="250" y="160" width="900" height="36" fill="rgba(255,31,61,.06)" stroke="rgba(255,31,61,.2)"/>
-<rect x="250" y="160" width="0" height="36" fill="#eaf2ff" opacity=".85">
-  <animate attributeName="width" values="0;750;750;0" keyTimes="0;0.16;0.9;1" dur="5s" repeatCount="indefinite"/>
-</rect>
-<text x="1014" y="186" class="o7" font-size="18" letter-spacing="2" fill="#eaf2ff" opacity="0">~250 MS
-  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.16;0.17;0.9;1" dur="5s" repeatCount="indefinite"/>
-</text>
+<g opacity=".25">
+  <animate attributeName="opacity" values=".25;.25;1;1;.25" keyTimes="0;0.000;0.005;0.97;1" dur="6s" repeatCount="indefinite"/>
+  <line x1="160" y1="141" x2="160" y2="163" stroke="#eaf2ff" stroke-width="2"/>
+  <circle cx="160" cy="175" r="8" fill="#050102" stroke="#eaf2ff" stroke-width="3" />
+  
+  <text x="160" y="113" text-anchor="middle" class="o9" font-size="14" letter-spacing="2" fill="#eaf2ff" >YA!</text>
+  <text x="160" y="135" text-anchor="middle" class="r6" font-size="15" letter-spacing="1" fill="#9a6d74">empieza el lanzamiento</text>
+  <text x="160" y="207" text-anchor="middle" class="o7" font-size="11" letter-spacing="1" fill="#9a6d74">0 MS</text>
+</g><g opacity=".25">
+  <animate attributeName="opacity" values=".25;.25;1;1;.25" keyTimes="0;0.158;0.163;0.97;1" dur="6s" repeatCount="indefinite"/>
+  <line x1="349.47368421052636" y1="215" x2="349.47368421052636" y2="225" stroke="#eaf2ff" stroke-width="2"/>
+  <circle cx="349.47368421052636" cy="175" r="8" fill="#050102" stroke="#eaf2ff" stroke-width="3" />
+  
+  <text x="349.47368421052636" y="259" text-anchor="middle" class="o9" font-size="14" letter-spacing="2" fill="#eaf2ff" >TU MANO SE ABRE</text>
+  <text x="349.47368421052636" y="281" text-anchor="middle" class="r6" font-size="15" letter-spacing="1" fill="#9a6d74">los dedos apenas se separan</text>
+  <text x="349.47368421052636" y="207" text-anchor="middle" class="o7" font-size="11" letter-spacing="1" fill="#9a6d74">160 MS</text>
+</g><g opacity=".25">
+  <animate attributeName="opacity" values=".25;.25;1;1;.25" keyTimes="0;0.247;0.252;0.97;1" dur="6s" repeatCount="indefinite"/>
+  <line x1="456.05263157894734" y1="141" x2="456.05263157894734" y2="163" stroke="#ff1f3d" stroke-width="2"/>
+  <circle cx="456.05263157894734" cy="175" r="11" fill="#050102" stroke="#ff1f3d" stroke-width="3" filter="url(#g8)"/>
+  <circle cx="456.05263157894734" cy="175" r="4" fill="#ff1f3d"/>
+  <text x="456.05263157894734" y="113" text-anchor="middle" class="o9" font-size="17" letter-spacing="2" fill="#ff1f3d" filter="url(#g4)">LA MÁQUINA DECIDE</text>
+  <text x="456.05263157894734" y="135" text-anchor="middle" class="r6" font-size="15" letter-spacing="1" fill="#9a6d74">historial + lectura temprana</text>
+  <text x="456.05263157894734" y="207" text-anchor="middle" class="o7" font-size="11" letter-spacing="1" fill="#9a6d74">250 MS</text>
+</g><g opacity=".25">
+  <animate attributeName="opacity" values=".25;.25;1;1;.25" keyTimes="0;0.474;0.479;0.97;1" dur="6s" repeatCount="indefinite"/>
+  <line x1="728.421052631579" y1="215" x2="728.421052631579" y2="225" stroke="#eaf2ff" stroke-width="2"/>
+  <circle cx="728.421052631579" cy="175" r="8" fill="#050102" stroke="#eaf2ff" stroke-width="3" />
+  
+  <text x="728.421052631579" y="259" text-anchor="middle" class="o9" font-size="14" letter-spacing="2" fill="#eaf2ff" >TERMINAS EL GESTO</text>
+  <text x="728.421052631579" y="281" text-anchor="middle" class="r6" font-size="15" letter-spacing="1" fill="#9a6d74">mano quieta y formada</text>
+  <text x="728.421052631579" y="207" text-anchor="middle" class="o7" font-size="11" letter-spacing="1" fill="#9a6d74">480 MS</text>
+</g><g opacity=".25">
+  <animate attributeName="opacity" values=".25;.25;1;1;.25" keyTimes="0;0.701;0.706;0.97;1" dur="6s" repeatCount="indefinite"/>
+  <line x1="1000.7894736842105" y1="141" x2="1000.7894736842105" y2="163" stroke="#ff1f3d" stroke-width="2"/>
+  <circle cx="1000.7894736842105" cy="175" r="8" fill="#050102" stroke="#ff1f3d" stroke-width="3" />
+  
+  <text x="1000.7894736842105" y="113" text-anchor="middle" class="o9" font-size="14" letter-spacing="2" fill="#ff1f3d" >VALIDADO</text>
+  <text x="1000.7894736842105" y="135" text-anchor="middle" class="r6" font-size="15" letter-spacing="1" fill="#9a6d74">7 cuadros sin cambios</text>
+  <text x="1000.7894736842105" y="207" text-anchor="middle" class="o7" font-size="11" letter-spacing="1" fill="#9a6d74">710 MS</text>
+</g>
+<g>
+  <line x1="160" y1="105" x2="160" y2="245" stroke="#ff1f3d" stroke-width="2" filter="url(#g4)">
+    <animate attributeName="x1" values="160;1060;1060" keyTimes="0;0.75;1" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="160;1060;1060" keyTimes="0;0.75;1" dur="6s" repeatCount="indefinite"/>
+  </line>
+</g>
 
 <pattern id="sl" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.5" fill="#000" opacity=".45"/></pattern>
-<rect width="1200" height="300" fill="url(#sl)"/>
+<rect width="1200" height="370" fill="url(#sl)"/>
 </svg>

@@ -789,7 +789,7 @@ kbd {
 
 .panels {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
@@ -850,6 +850,21 @@ kbd {
 .chip svg {
   width: 30px;
   height: 30px;
+}
+
+.meter {
+  width: 80%;
+  height: 4px;
+  background: var(--red-faint);
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  width: calc(var(--p, 0) * 100%);
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+  transition: width 0.08s linear;
 }
 
 .chip.active {
@@ -939,6 +954,212 @@ footer {
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 2.2;
+}
+
+/* Piezas del conteo, la decision y la validacion */
+
+.ways {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ways li {
+  padding: 8px 14px;
+  background: rgba(5, 1, 2, 0.7);
+  border: 1px solid var(--line);
+  color: #d9b6bc;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.ways b {
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pips {
+  display: flex;
+  gap: 12px;
+}
+
+.pips i {
+  width: 34px;
+  height: 6px;
+  background: var(--red-dim);
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+.pips i.on {
+  background: var(--red);
+  box-shadow: 0 0 12px var(--red);
+}
+
+.source {
+  font-family: var(--display);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.layer.commit {
+  background: rgba(5, 1, 2, 0.55);
+  gap: 14px;
+}
+
+.card.small {
+  width: clamp(130px, 20vw, 170px);
+}
+
+.commit-note {
+  font-family: var(--display);
+  font-size: 0.72rem !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ice) !important;
+}
+
+.validate {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  font-family: var(--display);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.validate .bar {
+  width: 220px;
+  height: 6px;
+  background: var(--red-faint);
+  border: 1px solid var(--line);
+}
+
+.validate .bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
+.card.you.winner {
+  border-color: var(--ice);
+  background: linear-gradient(180deg, rgba(234, 242, 255, 0.18), rgba(234, 242, 255, 0.04));
+  box-shadow: inset 0 0 40px rgba(234, 242, 255, 0.2);
+}
+
+.verdict[data-winner="you"] {
+  color: var(--ice);
+  text-shadow: 0 0 10px rgba(234, 242, 255, 0.8), 0 0 40px rgba(234, 242, 255, 0.5) !important;
+}
+
+.verdict[data-winner="tie"],
+.verdict[data-winner="none"] {
+  color: var(--text);
+  text-shadow: 0 0 20px rgba(255, 31, 61, 0.5) !important;
+}
+
+.layer .detail {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.readout.br {
+  top: auto;
+  bottom: 26px;
+  right: 28px;
+  max-width: 45%;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+
+.voice-note {
+  margin: -6px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hint {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--red);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+}
+
+.bars div {
+  display: grid;
+  grid-template-columns: 64px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+.bars b {
+  height: 8px;
+  background: var(--red-faint);
+  border: 1px solid var(--line);
+}
+
+.bars i {
+  display: block;
+  height: 100%;
+  width: 33%;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+  transition: width 0.4s ease;
+}
+
+.bars em {
+  font-style: normal;
+  font-family: var(--display);
+  font-size: 0.75rem;
+  color: var(--red);
+  text-align: right;
+}
+
+.history li.w-you {
+  border-color: rgba(234, 242, 255, 0.5);
+}
+
+.history li.w-tie {
+  opacity: 0.6;
 }
 
 /* Telefono */

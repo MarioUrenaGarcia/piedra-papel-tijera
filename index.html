@@ -88,11 +88,12 @@
         <div class="scan" aria-hidden="true"></div>
         <div class="readout tl" aria-hidden="true">VISION.SYS <b>EN LINEA</b></div>
         <div class="readout tr" aria-hidden="true" id="fps">0 FPS</div>
+        <div class="readout br" id="voice-readout" hidden>VOZ <b id="voice-heard">escuchando</b></div>
 
         <div class="layer" id="layer-start">
           <div class="pulse-ring"><svg><use href="#icon-paper" /></svg></div>
           <h2>Enciende la cámara</h2>
-          <p>Todo se procesa en tu navegador. Ningún video sale de tu equipo.</p>
+          <p>El video se procesa en tu navegador y nunca sale de tu equipo.</p>
           <button class="btn primary" id="btn-camera">Activar cámara</button>
           <p class="error" id="error" hidden></p>
         </div>
@@ -103,23 +104,39 @@
         </div>
 
         <div class="layer ghost" id="layer-idle" hidden>
-          <h2>¿Listo para perder?</h2>
-          <p>Pulsa <kbd>Espacio</kbd> o el botón Jugar</p>
+          <h2 id="idle-title">¿Listo para perder?</h2>
+          <ul class="ways">
+            <li><b>Agita el puño</b> tres veces</li>
+            <li><b>Di</b> «piedra, papel, tijera»</li>
+            <li><b>Pulsa</b> <kbd>Espacio</kbd></li>
+          </ul>
         </div>
 
         <div class="layer ghost" id="layer-count" hidden>
           <span class="count-word" id="count-word"></span>
+          <div class="pips" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="source" id="count-source"></span>
+        </div>
+
+        <div class="layer commit" id="layer-commit" hidden>
+          <div class="card cpu winner small">
+            <span class="tag">La máquina eligió</span>
+            <svg><use id="commit-icon" href="#icon-paper" /></svg>
+            <strong id="commit-move">Papel</strong>
+          </div>
+          <p class="commit-note" id="commit-note"></p>
+          <div class="validate"><span>Validando tu jugada</span><div class="bar"><i id="validate-bar"></i></div></div>
         </div>
 
         <div class="layer result" id="layer-result" hidden>
-          <div class="cards">
-            <div class="card you">
+          <div class="cards" id="result-cards">
+            <div class="card you" id="card-you">
               <span class="tag">Tú</span>
               <svg><use id="res-you-icon" href="#icon-rock" /></svg>
               <strong id="res-you">Piedra</strong>
             </div>
             <div class="vs-bolt">VS</div>
-            <div class="card cpu winner">
+            <div class="card cpu" id="card-cpu">
               <span class="tag">Máquina</span>
               <svg><use id="res-cpu-icon" href="#icon-paper" /></svg>
               <strong id="res-cpu">Papel</strong>
@@ -127,6 +144,7 @@
           </div>
           <h2 class="verdict" id="verdict">Gana la máquina</h2>
           <p class="reaction" id="reaction"></p>
+          <p class="detail" id="detail"></p>
         </div>
 
         <div class="live" id="live" hidden>
@@ -137,26 +155,41 @@
 
       <section class="controls">
         <button class="btn primary big" id="btn-play" disabled>Jugar</button>
-        <button class="btn toggle" id="btn-auto" aria-pressed="false" disabled>Modo auto</button>
+        <button class="btn toggle" id="btn-voice" aria-pressed="false" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3" fill="currentColor" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          Voz
+        </button>
         <button class="btn" id="btn-reset">Reiniciar</button>
       </section>
+      <p class="voice-note" id="voice-note" hidden></p>
 
       <section class="panels">
         <div class="panel hud">
-          <h3>Detección en vivo</h3>
+          <h3>Lectura de tu mano</h3>
           <div class="chips">
-            <div class="chip" data-g="rock"><svg><use href="#icon-rock" /></svg>Piedra</div>
-            <div class="chip" data-g="paper"><svg><use href="#icon-paper" /></svg>Papel</div>
-            <div class="chip" data-g="scissors"><svg><use href="#icon-scissors" /></svg>Tijera</div>
+            <div class="chip" data-g="rock"><svg><use href="#icon-rock" /></svg>Piedra<span class="meter"><i></i></span></div>
+            <div class="chip" data-g="paper"><svg><use href="#icon-paper" /></svg>Papel<span class="meter"><i></i></span></div>
+            <div class="chip" data-g="scissors"><svg><use href="#icon-scissors" /></svg>Tijera<span class="meter"><i></i></span></div>
           </div>
+          <p class="hint">La barra es la probabilidad que la máquina asigna a cada jugada mientras tu mano se abre.</p>
         </div>
         <div class="panel hud">
-          <h3>Reflejos de la máquina</h3>
-          <div class="stats">
-            <div><span class="stat" id="stat-last">0</span><small>ms última</small></div>
-            <div><span class="stat" id="stat-best">0</span><small>ms mejor</small></div>
-            <div><span class="stat" id="stat-avg">0</span><small>ms promedio</small></div>
+          <h3>Predicción por historial</h3>
+          <div class="bars" id="prior">
+            <div data-g="rock"><span>Piedra</span><b><i></i></b><em>33%</em></div>
+            <div data-g="paper"><span>Papel</span><b><i></i></b><em>33%</em></div>
+            <div data-g="scissors"><span>Tijera</span><b><i></i></b><em>33%</em></div>
           </div>
+          <p class="hint"><span id="prior-text">Aún no conozco tus patrones.</span> <button class="link" id="btn-forget">Olvidar</button></p>
+        </div>
+        <div class="panel hud">
+          <h3>Rendimiento de la máquina</h3>
+          <div class="stats">
+            <div><span class="stat" id="stat-lead">0</span><small>ms anticipación</small></div>
+            <div><span class="stat" id="stat-avg">0</span><small>ms promedio</small></div>
+            <div><span class="stat" id="stat-acc">0%</span><small>aciertos</small></div>
+          </div>
+          <p class="hint">Anticipación: cuánto antes de que terminaras tu gesto decidió la máquina.</p>
         </div>
         <div class="panel hud">
           <h3>Historial</h3>
@@ -167,7 +200,7 @@
       </section>
 
       <footer>
-        Visión por computadora con MediaPipe Hands. <kbd>Espacio</kbd> jugar · <kbd>A</kbd> auto ·
+        Visión por computadora con MediaPipe Hands. <kbd>Espacio</kbd> jugar · <kbd>V</kbd> voz ·
         <kbd>R</kbd> reiniciar · <kbd>M</kbd> sonido
       </footer>
     </main>
