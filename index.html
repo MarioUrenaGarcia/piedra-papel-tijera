@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piedra Papel Tijera</title>
+    <meta
+      name="description"
+      content="Juega piedra, papel o tijera con tu camara contra una maquina que nunca pierde."
+    />
+    <meta name="theme-color" content="#050102" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="sky"></div>
+      <div class="horizon"></div>
+      <div class="floor"></div>
+      <div class="scanlines"></div>
+    </div>
+
+    <svg width="0" height="0" class="defs" aria-hidden="true">
+      <symbol id="icon-rock" viewBox="0 0 64 64">
+        <rect x="12" y="24" width="40" height="30" rx="11" fill="currentColor" />
+        <circle cx="18" cy="24" r="6" fill="currentColor" />
+        <circle cx="27.5" cy="21" r="6" fill="currentColor" />
+        <circle cx="37" cy="21" r="6" fill="currentColor" />
+        <circle cx="46" cy="24" r="6" fill="currentColor" />
+        <path d="M22.7 19v8M32.2 17v8M41.6 19v8" stroke="var(--bg)" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M13 37h13a4.5 4.5 0 0 0 0-9h-4" fill="none" stroke="var(--bg)" stroke-width="2.5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-paper" viewBox="0 0 64 64">
+        <rect x="17" y="30" width="30" height="26" rx="10" fill="currentColor" />
+        <rect x="18" y="10" width="6.5" height="26" rx="3.25" fill="currentColor" />
+        <rect x="26" y="5" width="6.5" height="30" rx="3.25" fill="currentColor" />
+        <rect x="34" y="7" width="6.5" height="28" rx="3.25" fill="currentColor" />
+        <rect x="41.5" y="14" width="6" height="22" rx="3" fill="currentColor" />
+        <rect x="6" y="30" width="6.5" height="20" rx="3.25" transform="rotate(-38 9 40)" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-scissors" viewBox="0 0 64 64">
+        <rect x="17" y="30" width="30" height="26" rx="10" fill="currentColor" />
+        <rect x="19" y="5" width="7" height="32" rx="3.5" transform="rotate(-14 22 34)" fill="currentColor" />
+        <rect x="29" y="5" width="7" height="32" rx="3.5" transform="rotate(14 32 34)" fill="currentColor" />
+        <path d="M38 34h6M38 41h6" stroke="var(--bg)" stroke-width="3" stroke-linecap="round" />
+      </symbol>
+    </svg>
+
+    <main class="app">
+      <header class="top">
+        <div class="brand">
+          <h1 data-text="Piedra/Papel/Tijera">Piedra<span>/</span>Papel<span>/</span>Tijera</h1>
+          <p>La máquina no pierde. Nunca.</p>
+        </div>
+        <button class="icon-btn" id="sound" aria-pressed="true" title="Sonido (M)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" />
+            <path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path class="mute" d="M16 9l6 6M22 9l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </header>
+
+      <section class="score" aria-label="Marcador">
+        <div class="side cpu hud">
+          <span class="label">Máquina</span>
+          <span class="num" id="score-cpu">0</span>
+        </div>
+        <div class="vs">
+          <span>VS</span>
+          <small id="round">Ronda 0</small>
+        </div>
+        <div class="side you hud">
+          <span class="label">Tú</span>
+          <span class="num" id="score-you">0</span>
+        </div>
+      </section>
+
+      <section class="stage hud" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="overlay"></canvas>
+        <div class="scan" aria-hidden="true"></div>
+        <div class="readout tl" aria-hidden="true">VISION.SYS <b>EN LINEA</b></div>
+        <div class="readout tr" aria-hidden="true" id="fps">0 FPS</div>
+
+        <div class="layer" id="layer-start">
+          <div class="pulse-ring"><svg><use href="#icon-paper" /></svg></div>
+          <h2>Enciende la cámara</h2>
+          <p>Todo se procesa en tu navegador. Ningún video sale de tu equipo.</p>
+          <button class="btn primary" id="btn-camera">Activar cámara</button>
+          <p class="error" id="error" hidden></p>
+        </div>
+
+        <div class="layer" id="layer-loading" hidden>
+          <div class="spinner"></div>
+          <p id="loading-text">Cargando modelo de manos</p>
+        </div>
+
+        <div class="layer ghost" id="layer-idle" hidden>
+          <h2>¿Listo para perder?</h2>
+          <p>Pulsa <kbd>Espacio</kbd> o el botón Jugar</p>
+        </div>
+
+        <div class="layer ghost" id="layer-count" hidden>
+          <span class="count-word" id="count-word"></span>
+        </div>
+
+        <div class="layer result" id="layer-result" hidden>
+          <div class="cards">
+            <div class="card you">
+              <span class="tag">Tú</span>
+              <svg><use id="res-you-icon" href="#icon-rock" /></svg>
+              <strong id="res-you">Piedra</strong>
+            </div>
+            <div class="vs-bolt">VS</div>
+            <div class="card cpu winner">
+              <span class="tag">Máquina</span>
+              <svg><use id="res-cpu-icon" href="#icon-paper" /></svg>
+              <strong id="res-cpu">Papel</strong>
+            </div>
+          </div>
+          <h2 class="verdict" id="verdict">Gana la máquina</h2>
+          <p class="reaction" id="reaction"></p>
+        </div>
+
+        <div class="live" id="live" hidden>
+          <span class="dot"></span>
+          <span id="live-text">Buscando mano</span>
+        </div>
+      </section>
+
+      <section class="controls">
+        <button class="btn primary big" id="btn-play" disabled>Jugar</button>
+        <button class="btn toggle" id="btn-auto" aria-pressed="false" disabled>Modo auto</button>
+        <button class="btn" id="btn-reset">Reiniciar</button>
+      </section>
+
+      <section class="panels">
+        <div class="panel hud">
+          <h3>Detección en vivo</h3>
+          <div class="chips">
+            <div class="chip" data-g="rock"><svg><use href="#icon-rock" /></svg>Piedra</div>
+            <div class="chip" data-g="paper"><svg><use href="#icon-paper" /></svg>Papel</div>
+            <div class="chip" data-g="scissors"><svg><use href="#icon-scissors" /></svg>Tijera</div>
+          </div>
+        </div>
+        <div class="panel hud">
+          <h3>Reflejos de la máquina</h3>
+          <div class="stats">
+            <div><span class="stat" id="stat-last">0</span><small>ms última</small></div>
+            <div><span class="stat" id="stat-best">0</span><small>ms mejor</small></div>
+            <div><span class="stat" id="stat-avg">0</span><small>ms promedio</small></div>
+          </div>
+        </div>
+        <div class="panel hud">
+          <h3>Historial</h3>
+          <ol class="history" id="history">
+            <li class="empty">Aún no hay rondas</li>
+          </ol>
+        </div>
+      </section>
+
+      <footer>
+        Visión por computadora con MediaPipe Hands. <kbd>Espacio</kbd> jugar · <kbd>A</kbd> auto ·
+        <kbd>R</kbd> reiniciar · <kbd>M</kbd> sonido
+      </footer>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
